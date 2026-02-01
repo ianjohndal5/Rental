@@ -2506,40 +2506,78 @@
     margin-bottom: 0;
   }
 
-  /* Override for carousel - make cards wider */
+  /* Override for carousel - make cards smaller to fit multiple on screen */
   .property-carousel .vertical-property-card {
-    min-width: calc(100vw - 80px);
-    max-width: calc(100vw - 80px);
-    width: calc(100vw - 80px);
+    min-width: 280px;
+    max-width: 280px;
+    width: 280px;
     flex-shrink: 0;
-    border-radius: 16px;
+    border-radius: 12px;
   }
 
   .property-carousel .vertical-property-image {
-    height: 260px; /* Increased for better visibility in carousel */
+    height: 180px; /* Reduced for smaller cards */
   }
 
   .property-carousel .vertical-property-content {
-    padding: 16px;
-    gap: 12px;
+    padding: 12px;
+    gap: 8px;
   }
 
   .property-carousel .vertical-property-price {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .property-carousel .vertical-property-title {
-    font-size: 16px;
-    max-height: 48px;
+    font-size: 13px;
+    max-height: 36px;
+    -webkit-line-clamp: 2;
   }
 
   .property-carousel .vertical-property-type {
-    font-size: 11px;
-    padding: 4px 8px;
+    font-size: 9px;
+    padding: 3px 6px;
   }
 
   .property-carousel .vertical-property-date {
-    font-size: 11px;
+    font-size: 9px;
+  }
+
+  .property-carousel .vertical-rent-manager-badge {
+    padding: 6px 8px;
+    margin-top: 4px;
+  }
+
+  .property-carousel .vertical-rent-manager-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .property-carousel .vertical-rent-manager-name {
+    font-size: 10px;
+  }
+
+  .property-carousel .vertical-rent-manager-role {
+    font-size: 8px;
+  }
+
+  .property-carousel .vertical-property-features {
+    height: 40px;
+    padding: 6px 4px;
+  }
+
+  .property-carousel .vertical-property-feature-item {
+    padding: 4px 2px;
+    gap: 3px;
+  }
+
+  .property-carousel .vertical-property-feature-item svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .property-carousel .vertical-property-feature-item span:not(.feature-tooltip) {
+    font-size: 10px;
   }
 
   .vertical-property-card:hover {
@@ -3016,10 +3054,11 @@
 .browse-property-carousel {
   display: flex;
   gap: 24px;
-  overflow-x: hidden; /* Changed to hidden to prevent manual scrolling interference */
+  overflow-x: auto; /* Changed to auto for touch scrolling on mobile */
   overflow-y: hidden;
-  scroll-snap-type: none; /* Disable snap for smooth infinite scroll */
-  scroll-behavior: auto;
+  scroll-snap-type: x mandatory; /* Enable snap for better mobile experience */
+  scroll-behavior: smooth;
+  touch-action: pan-x; /* Enable touch scrolling */
   padding: 20px 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Hide scrollbar for cleaner look */
@@ -3033,6 +3072,7 @@
 
 .browse-property-carousel > * {
   flex-shrink: 0;
+  scroll-snap-align: start; /* Enable snap for better mobile experience */
 }
 
 /* Carousel Navigation Arrow */
@@ -3272,8 +3312,16 @@
   }
 
   .browse-property-carousel {
-    gap: 20px;
+    gap: 16px;
     padding: 16px 0;
+    touch-action: pan-x; /* Enable touch scrolling */
+  }
+
+  /* Make browse carousel cards smaller on mobile */
+  .browse-property-carousel .vertical-property-card {
+    min-width: 280px;
+    max-width: 280px;
+    width: 280px;
   }
 
   .carousel-nav-arrow {
@@ -3293,14 +3341,16 @@
 
   .featured-section .property-carousel {
     padding: 16px 20px 24px 20px;
-    gap: 16px;
+    gap: 12px;
+    touch-action: pan-x; /* Enable touch scrolling */
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Make cards in carousel nearly full-width on mobile */
+  /* Make cards smaller to fit multiple on mobile */
   .featured-section .property-carousel .vertical-property-card {
-    min-width: calc(100vw - 80px);
-    max-width: calc(100vw - 80px);
-    width: calc(100vw - 80px);
+    min-width: 280px;
+    max-width: 280px;
+    width: 280px;
     flex-shrink: 0;
   }
 
@@ -3325,14 +3375,16 @@
   }
 
   .browse-property-carousel {
-    gap: 16px;
+    gap: 12px;
     padding: 12px 0;
+    touch-action: pan-x; /* Enable touch scrolling */
   }
 
+  /* Make browse carousel cards smaller on mobile */
   .browse-property-carousel .vertical-property-card {
-    min-width: calc(100vw - 80px);
-    max-width: calc(100vw - 80px);
-    width: calc(100vw - 80px);
+    min-width: 280px;
+    max-width: 280px;
+    width: 280px;
   }
 
   .carousel-nav-arrow {
